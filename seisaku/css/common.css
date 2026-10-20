@@ -1,0 +1,210 @@
+@charset "UTF-8";
+
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+body {
+  font-family: "Yusei Magic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ====================
+  ヘッダー
+==================== */
+
+.header {
+  width: 100%;
+}
+
+#topbar {
+  width: 100%;
+  height: 110px;
+  background-color: #fff;
+  opacity: 0.8;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#topbar img {
+  height: 110px;
+  margin-left: 30px;
+  mix-blend-mode: multiply;
+}
+
+.txt1 {
+  width: 200px;
+  height: 100px;
+  margin: 5px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.txt1 a {
+  text-decoration: none;
+}
+
+/* ====================
+  絵画一覧
+==================== */
+
+body > ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+}
+
+body > ul > li {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+body > ul > li img {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-left: 20px;
+  transition: 0.3s;
+}
+
+dl {
+  margin-top: 10px;
+}
+
+dt {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+dd {
+  margin: 5px 0 0;
+  font-size: 20px;
+}
+
+/* 絵画にマウスを乗せたとき */
+body > ul > li img:hover {
+  transform: scale(1.10);
+}
+
+/* ====================
+  フッター
+==================== */
+
+footer {
+  color: #fff;
+  background-color: #2b2522;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  margin: 0;
+  padding: 30px 0 20px;
+}
+
+/* フッターのメニュー */
+
+footer .menu {
+  width: auto;
+  height: auto;
+  margin: 5px;
+}
+
+footer .menu ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+}
+
+footer .menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* フッターの画像 */
+
+footer .footer-logo img {
+  height: 100px;
+  width: auto;
+  margin: 20px 0;
+}
+
+/* フッターの文章 */
+
+footer p {
+  font-size: 30px;
+}
+
+footer .copyright {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+
+/* ====================
+  スマホ
+==================== */
+
+@media (max-width: 768px) {
+
+  /* 絵画を1列にする */
+  body > ul {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  body > ul > li img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin-left: 0;
+  }
+
+  body > ul > li {
+    margin-bottom: 50px;
+  }
+
+  /* フッター */
+  footer {
+    padding: 25px 0 15px;
+  }
+
+  footer .menu ul {
+    gap: 25px;
+  }
+
+  footer .footer-logo img {
+    height: 70px;
+    margin: 15px 0;
+  }
+
+  footer p {
+    font-size: 20px;
+  }
+
+  footer .copyright {
+    font-size: 14px;
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,175 @@
+/* @charset "UTF-8";
+
+body {
+  background-image: url(../img/hitsuzi.jpeg );
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-color: #fff;
+  opacity: 0.8;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+  pointer-events: none;
+}
+
+header {
+  width: 100%;
+  height: 100vh;
+}
+
+section{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+#topbar{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.6;
+  position: fixed;
+}
+
+.txt1 {
+  width: 200px;
+  height: 100px;
+  background-color: #fff;
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+img{
+  height: 110px;
+  margin-left: 30px;
+}
+
+h2{
+  font-size: 40px;
+}
+
+.txt2{
+  font-size: 30px;
+}
+
+main {
+  background-color: transparent;
+} */
+
+
+@charset "UTF-8";
+
+body {
+  background-image: url(../img/hitsuzi.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-color: #fff;
+  /* opacity: 0.8;  ← 背景だけでなく文字も含めた全体が透けるため削除 */
+  color: #333; /* 文字色をはっきりした色に指定 */
+  font-family: "Yusei Magic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 背景を少し白くぼかしたい場合は body::before だけで調整します */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.7); /* 0.5 → 0.7 にすると背景画像が少し薄くなり文字が見やすくなります */
+  z-index: -1; /* 0 から -1 に変更して、文字の後ろに配置します */
+  pointer-events: none;
+}
+
+header {
+  width: 100%;
+  /* height: 100vh; ← 画面全体の高さになってしまいメインコンテンツを押し下げてしまうため削除 */
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* start から center に変更すると縦中央に揃います */
+}
+
+.txt1 {
+  width: 200px;
+  height: 100px;
+  background-color: transparent; /* 白背景を透明に */
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.txt1 a{
+  text-decoration: none;
+}
+
+img {
+  height: 110px;
+  margin-left: 30px;
+  mix-blend-mode: multiply;
+}
+
+h2 {
+  font-size: 40px;
+  color: #111; /* 見出しの文字を濃く設定 */
+}
+
+.txt2 {
+  font-size: 30px;
+  color: #222; /* 本文の文字を濃く設定 */
+  line-height: 1.6;
+}
+
+main {
+  background-color: transparent;
+  position: relative;
+  z-index: 1; /* 背景（::before）より前に表示させる */
+  padding: 20px;
+}
+
+/* 画面幅が768px以下（スマホサイズ）の時の調整 */
+@media (max-width: 768px) {
+  /* タイトル（h1）の文字サイズを調整 */
+  h1 {
+    font-size: 24px;
+  }
+
+  /* 見出し（h2）の文字サイズを調整 */
+  h2 {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  /* 本文（.txt2）の文字サイズと余白を調整 */
+  .txt2 {
+    font-size: 16px; /* 30pxから14px〜16px程度に下げる */
+    line-height: 1.8; /* 行間を広げて読みやすくする */
+    padding: 0 10px;  /* 画面端との余白 */
+  }
+
+  /* ヘッダー周りの調整 */
+  #topbar {
+    position: relative; /* 固定表示を解除して自然に流す */
+    flex-direction: column; /* 要素を縦並びに */
+    align-items: center;
+  }
+
+  .txt1 {
+    width: auto;
+    height: auto;
+    gap: 15px;
+  }
+}
